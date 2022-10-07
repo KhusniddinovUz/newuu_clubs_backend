@@ -1,1 +1,1 @@
-web: gunicorn newuu_club.wsgi --logfile -
+web: gunicorn newuu_club.wsgi
