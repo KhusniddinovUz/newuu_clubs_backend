@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'newuu_club.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd94ptr0dl8p5v',
+        'USER': 'ttfnfbzrfyhmxt',
+        'PASSWORD': 'f61b1c3a47b247b31d20630afaedb30c202152edd2748387989cb472e8674cdf',
+        'HOST': 'ec2-54-77-40-202.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
