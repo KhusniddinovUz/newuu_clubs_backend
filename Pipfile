@@ -10,6 +10,7 @@ django-cors-headers = "*"
 gunicorn = "*"
 whitenoise = "*"
 psycopg2 = "*"
+django-rest-knox = "*"
 
 [dev-packages]
 

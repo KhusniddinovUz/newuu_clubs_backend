@@ -27,7 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newuu_clubs.apps.NewuuClubsConfig',
+    'accounts.apps.AccountsConfig',
     'rest_framework',
+    'knox',
     'corsheaders',
     'whitenoise.runserver_nostatic',
 ]
@@ -100,11 +102,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8000'
-]
-
 CORS_ALLOW_ALL_ORIGINS: True
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
+REST_KNOX = {
+    'TOKEN_TTL': None,
+}
+
+AUTH_USER_MODEL = 'accounts.Accounts'
 
 LANGUAGE_CODE = 'en-us'
 
