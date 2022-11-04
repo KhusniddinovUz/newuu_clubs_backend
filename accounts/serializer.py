@@ -21,8 +21,18 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
+# class LoginSerializer(serializers.Serializer):
+#     email = serializers.CharField()
+#     password = serializers.CharField()
+#
+#     def validate(self, data):
+#         user = authenticate(**data)
+#         if user and user.is_active:
+#             return user
+#         raise serializers.ValidationError('Incorrect Credentials')
+
 class LoginSerializer(serializers.Serializer):
-    email = serializers.CharField()
+    username = serializers.CharField()
     password = serializers.CharField()
 
     def validate(self, data):

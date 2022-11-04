@@ -19,9 +19,12 @@ class RegisterAPI(generics.GenericAPIView):
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginSerializer
-    permission_classes = [
-        permissions.IsAuthenticated,
-    ]
 
-    def get_object(self):
-        return self.request.user
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data
+        return Response({
+            'user': AccountsSerializer(user, context=self.get_serializer_context()).data,
+            'token': AuthToken.objects.create(user)[1]
+        })
